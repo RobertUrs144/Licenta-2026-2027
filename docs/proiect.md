@@ -76,11 +76,6 @@ Raw video never leaves the device continuously. Inference runs on the Raspberry 
 * Power-loss protection (UPS HAT, graceful shutdown) and environmental sensing with the SHT4x.
 * Optional / stretch: pan-tilt camera control, if time permits and it does not affect O1–O5.
 
-### Out of Scope
-* Medical-device certification or clinical validation with elderly users.
-* Multi-room or multi-camera deployments.
-* Cloud-based vision inference and continuous video recording or streaming to the cloud.
-* Wearable sensors and mobile-robot navigation.
 
 ### Risks & Mitigations
 
@@ -92,8 +87,3 @@ Raw video never leaves the device continuously. Inference runs on the Raspberry 
 | Python / `Picamera2` environment conflicts | Camera pipeline fails | Use system Python with a `--system-site-packages` virtual environment; pin the OS release |
 | NAT traversal failures on restrictive networks | WebRTC connection fails | Deploy a TURN server; evaluate with and without relay |
 | False alarms or missed falls | Alert fatigue or missed emergency | Multi-stage validation (aspect-ratio heuristic) and voice check-in; report event-level metrics |
-
-### Privacy & Ethics
-* Images are processed on the device; only short event clips are uploaded, over encrypted connections, with a defined retention period.
-* Fall-related data may be treated as health-related personal data under GDPR; follow the university's data-protection and ethics guidance.
-* Experiments with people use healthy volunteers simulating falls on safe surfaces, with informed consent and the option to withdraw.
